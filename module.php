@@ -581,11 +581,11 @@ class WoocResearchModule extends AbstractModule implements ModuleMenuInterface, 
 				jQuery("#task-tabs").css("visibility", "visible");
 			});';
 			$controller=new PageController();
-			$controller->setPageTitle($this->getTitle())
+			$controller->setPageTitle($this->getMenuTitle())
 				->addInlineJavascript($js)
 				->pageHeader();
 			$html.='<div id="task-details">
-				<h2>'.$this->getTitle().'</h2>
+				<h2>'.$this->getMenuTitle().'</h2>
 				<div id="task-tabs">
 				<ul>';
 			$tab_html='';
@@ -876,7 +876,7 @@ class WoocResearchModule extends AbstractModule implements ModuleMenuInterface, 
 					$content.='<tr>';
 					//-- Event date (sortable)
 					$content .= '<td>'; //hidden by datables code
-					$content .= $todo['date']->JD();
+					$content .= $todo['date']->julianDay();
 					$content .= '</td>';
 					$content.='<td class="wrap">'. $todo['date']->Display(empty($SEARCH_SPIDER)).'</td>';
 					$name=$record->getFullName();
